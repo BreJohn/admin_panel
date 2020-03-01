@@ -1,0 +1,16 @@
+.image {
+    height: 75%!important;
+    margin: auto!important;
+}
+
+.leftSideDiv {
+    height: 18vw;
+}
+
+.leftSideDiv :hover{
+    background-color: #e8e8e8;
+}
+
+.leftSideDiv ::selection{
+    background-color: #1b68b3;
+}
