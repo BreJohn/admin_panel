@@ -1,12 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import "./RightSideBar.css";
 import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 
-class RightSideBar extends Component {
+function RightSideBar(){
 
-    render() {
-        console.log(" Right Users " + this.props.users)
         return (
             <>
                 <Form>
@@ -41,7 +39,7 @@ class RightSideBar extends Component {
                 </Form>
             </>
         )
-    }
+    
 }
 
 export default RightSideBar;

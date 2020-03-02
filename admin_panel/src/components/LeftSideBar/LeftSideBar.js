@@ -1,10 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Image } from 'react-bootstrap';
 import "./LeftSideBar.css"
-class LeftSideBar extends Component {
-
-    render() {
-        const users = this.props.users;
+function LeftSideBar(props) {
+        const users = props.users;
         return (
             users.map(
                 (user) => (
@@ -19,9 +17,8 @@ class LeftSideBar extends Component {
 
                 </div>)
             )
-
         )
-    }
+ 
 }
 
 export default LeftSideBar;
