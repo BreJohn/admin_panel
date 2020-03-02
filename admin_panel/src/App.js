@@ -9,10 +9,10 @@ function App() {
   return (
     <div className="App container-fluid">
       <div className="row">
-        <div className="col-md col-3"> 
+        <div className="col-md col-3 leftSideBar"> 
           <LeftSideBar users={users}></LeftSideBar>
         </div>
-        <div className="col-md col-9">
+        <div className="col-md col-9 rightSideBar">
           <RightSideBar users={users}></RightSideBar>
         </div>
       </div>

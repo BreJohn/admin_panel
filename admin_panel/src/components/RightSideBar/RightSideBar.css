@@ -1,7 +1,3 @@
-Form {
-    margin-top: 3vh;
-}
-
 Form Label {
     color:grey;
 }
@@ -13,5 +9,5 @@ Form Label {
 }
 .buttonsArea {
     text-align: right;
-    margin-top: 8vh
+    margin-top: 5vh
 }

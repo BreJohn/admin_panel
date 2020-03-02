@@ -38,6 +38,10 @@
     height: 100%;
 }
 
-.leftSideDiv :hover {
+.row .leftSideDiv :hover {
     background-color: #e8e8e8;
+}
+
+.h40 {
+    height:40px!important;
 }
