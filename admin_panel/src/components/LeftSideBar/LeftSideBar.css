@@ -1,16 +1,43 @@
+@Media (max-width: 768px) {
+    .image {
+        height: 75%!important;
+        margin: auto!important;  
+    }
+    
+    .leftSideDiv {
+        height: 100px;
+        text-align: center;
+    }
+    .userDetails {
+        display: none;
+    }
+    
+}
+
+@Media (min-width: 769px) {
+    .image {
+        height: 75%;
+    }
+
+    .leftSideDiv {
+        height: 100px;
+    }
+    .userDetails {
+        display: inline-block;
+        padding:20px;
+    }
+}
+
 .image {
-    height: 75%!important;
-    margin: auto!important;
+    position: relative;
+    top: 13px;
 }
 
-.leftSideDiv {
-    height: 18vw;
+
+.leftSideDiv div {
+    height: 100%;
 }
 
-.leftSideDiv :hover{
+.leftSideDiv :hover {
     background-color: #e8e8e8;
-}
-
-.leftSideDiv ::selection{
-    background-color: #1b68b3;
 }
