@@ -1,4 +1,5 @@
 export const USERS = [
+	
 	{
 		"id": "5c093af1c6ee9117a581c7d6",
 		"photo": "https://randomuser.me/api/portraits/men/40.jpg",

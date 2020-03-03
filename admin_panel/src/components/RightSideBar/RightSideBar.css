@@ -11,3 +11,7 @@ Form Label {
     text-align: right;
     margin-top: 5vh
 }
+
+.displayNone {
+    display:none;
+}

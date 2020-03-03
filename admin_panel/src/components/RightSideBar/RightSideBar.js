@@ -1,94 +1,70 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React from 'react'
 import "./RightSideBar.css";
 import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
-import User from "../../classes/classes";
-import UserContext from '../../context/user-context';
 
 const RightSideBar = (props) => {
-    const userContext = useContext(UserContext);
-    const foundUser = props.users.find(user => user.id === props.userSelected)
-    const currentUser = foundUser ? { ...foundUser } : new User();
-    const [formData, setFormData] = useState({...currentUser});
-    useEffect(
-        () => {
-            setFormData({...currentUser});
-        }
-    )
-    const handleSubmit = (event) => {
-        //props.submit(event);
-        const targetName = event.target.name;
-        const targetValue = event.target.value;
-        const editedUser = { ...currentUser };
-        editedUser[targetName] = targetValue;
-        userContext.editUser(editedUser);
-    }
 
-    const handleInputChange = (event) => {
-        //props.inputChange(event);
-        const formData = {...currentUser};
-        formData[event.target.name] = event.target.value;
-        setFormData(formData)
-    }
-
+    const { currentUser, handleSubmit, handleReset, handleInputChange, buttonSubmitDisabled } = props;
+    const cancelHidden = buttonSubmitDisabled? 'displayNone' : '' ;
     return (
         <>
-            <Form onSubmit = {handleSubmit}>
-                <Form.Group controlId="formName">
+            <Form onSubmit = {handleSubmit} onReset = {handleReset}>
+                <Form.Group controlId="name">
                     <Form.Label>Name</Form.Label>
                     <Form.Control
                         type="text"
                         placeholder="Enter name"
                         name="name"
-                        value={formData.name}
+                        value={currentUser.name}
                         onChange={handleInputChange}
                     />
                 </Form.Group>
-                <Form.Group controlId="formEmail">
+                <Form.Group controlId="email">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control
                         type="email"
                         placeholder="Enter email address"
                         name="email"
-                        value={formData.email}
+                        value={currentUser.email}
                         onChange={handleInputChange}
                     />
                 </Form.Group>
-                <Form.Group controlId="formPhone">
+                <Form.Group controlId="phone">
                     <Form.Label>Phone</Form.Label>
                     <Form.Control
                         type="text"
                         placeholder="Enter phone"
                         name="phone"
-                        value={formData.phone}
+                        value={currentUser.phone}
                         onChange={handleInputChange}
                     />
                 </Form.Group>
-                <Form.Group controlId="formAddress">
+                <Form.Group controlId="address">
                     <Form.Label>Address</Form.Label>
                     <Form.Control
                         type="text"
                         placeholder="Enter address"
                         name="address"
-                        value={formData.address}
+                        value={currentUser.address}
                         onChange={handleInputChange}
                     />
                 </Form.Group>
-                <Form.Group controlId="formCompany">
+                <Form.Group controlId="company">
                     <Form.Label>Company</Form.Label>
                     <Form.Control
                         type="text"
                         placeholder="Enter company"
                         name="company"
-                        value={formData.company}
+                        value={currentUser.company}
                         onChange={handleInputChange}
                     />
                 </Form.Group>
                 <div className="buttonsArea">
-                    <Button className="btn-cancel" variant="light" type="reset">
+                    <Button className={`btn-cancel ${cancelHidden}`} variant="light" type="reset">
                         Cancel
                     </Button>
-                    <Button className="btn-submit" variant="primary" type="submit">
+                    <Button className="btn-submit" disabled={buttonSubmitDisabled} variant="primary" type="submit">
                         Save
                     </Button>
                 </div>
