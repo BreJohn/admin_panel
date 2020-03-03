@@ -6,8 +6,8 @@ function LeftSideBar(props) {
     const users = props.users;
     return (
         users.map(
-            (user) => (
-                <User user={user}></User>
+            (user, index) => (
+                <User key={index} user={user}></User>
             )
         )
     )
