@@ -1,0 +1,8 @@
+.leftSideBar {
+    height: 100vh;
+    overflow: auto;
+}
+
+.rightSideBar {
+    padding: 2vw;
+}

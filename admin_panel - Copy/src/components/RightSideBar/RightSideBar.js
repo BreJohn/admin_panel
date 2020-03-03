@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import "./RightSideBar.css";
 import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
@@ -10,13 +10,8 @@ const RightSideBar = (props) => {
     const foundUser = props.users.find(user => user.id === props.userSelected)
     const currentUser = foundUser ? { ...foundUser } : new User();
     const [formData, setFormData] = useState({...currentUser});
-    useEffect(
-        () => {
-            setFormData({...currentUser});
-        }
-    )
+
     const handleSubmit = (event) => {
-        //props.submit(event);
         const targetName = event.target.name;
         const targetValue = event.target.value;
         const editedUser = { ...currentUser };
@@ -25,7 +20,6 @@ const RightSideBar = (props) => {
     }
 
     const handleInputChange = (event) => {
-        //props.inputChange(event);
         const formData = {...currentUser};
         formData[event.target.name] = event.target.value;
         setFormData(formData)

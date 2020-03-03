@@ -1,0 +1,47 @@
+@Media (max-width: 768px) {
+    .image {
+        height: 75%!important;
+        margin: auto!important;  
+    }
+    
+    .leftSideDiv {
+        height: 100px;
+        text-align: center;
+    }
+    .userDetails {
+        display: none;
+    }
+    
+}
+
+@Media (min-width: 769px) {
+    .image {
+        height: 75%;
+    }
+
+    .leftSideDiv {
+        height: 100px;
+    }
+    .userDetails {
+        display: inline-block;
+        padding:20px;
+    }
+}
+
+.image {
+    position: relative;
+    top: 13px;
+}
+
+
+.leftSideDiv div {
+    height: 100%;
+}
+
+.row .leftSideDiv :hover {
+    background-color: #e8e8e8;
+}
+
+.h40 {
+    height:40px!important;
+}
