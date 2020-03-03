@@ -15,3 +15,7 @@ Form Label {
 .displayNone {
     display:none;
 }
+
+.form-control {
+    border-color: #ececec;
+}
