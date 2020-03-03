@@ -38,7 +38,7 @@ class Layout extends Component {
         )
         const newUsers = { ...this.state.users };
         newUsers[this.state.userSelected] = edittedUser;
-        this.setState({ users: newUsers });
+        this.setState({ users: newUsers, submitDisabled: true });
     }
     reset = () => {
         this.setState({
