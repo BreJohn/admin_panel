@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Image } from 'react-bootstrap';
 import "./User.css"
 import UserContext from './../../../../../context/user-context';
-import UserContainer from './styledComponents';
+import UserContainer from './UserStyles';
 const User = (props) => {
 
     const userContext = useContext(UserContext);
