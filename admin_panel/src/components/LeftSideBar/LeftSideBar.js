@@ -1,28 +1,13 @@
+import React from 'react'
 import "./LeftSideBar.css"
-import React, { useContext } from 'react'
-import User from "../User/User";
-import UserContext from '../../context/user-context';
+import Users from './Users/Users';
 
-function LeftSideBar(props) {
-    const users = props.users;
-    const userContext = useContext(UserContext);
-    const selectedUser = userContext.userSelected
+const LeftSideBar = (props) => {
+    const userData = props.userData;
 
-    // const [bgColorSelected, setBgColor] = useState('bgColorDefault');
-
-    // const  = bgColor === 'bgColorDefault'? 'bgColorSelected' : 'bgColorDefault'; 
     return (
-        Object.keys(users).map(
-            (index) => {
-                let bgColor = 'bgColorDefault';
-                if (selectedUser === index) {
-                    bgColor = 'bgColorSelected'
-                }
-                return <User key={index} user={users[index]} bgColor={bgColor}></User>
-            }
-        )
+        <Users userData={userData}></Users>
     )
-
 }
 
 export default LeftSideBar;

@@ -16,19 +16,19 @@ class Layout extends Component {
                 return acc;
             }, {}
         )
-        this.state = { 
-            users: users, 
-            userSelected: '', 
-            currentUser: new User(), 
-            submitDisabled: true };
+        this.state = {
+            userData: users,
+            userSelected: '',
+            currentUser: new User(),
+            submitDisabled: true
+        };
     }
 
     userSelect = (id) => {
-        this.setState({ userSelected: id, currentUser: this.state.users[id] });
+        this.setState({ userSelected: id, currentUser: this.state.userData[id] });
     }
 
     submit = (event) => {
-        // const formData = event.target.value;
         event.preventDefault();
         const edittedUser = { ...this.state.currentUser };
         Object.keys(edittedUser).filter(key => key !== 'id' && key !== 'photo').map(
@@ -42,14 +42,14 @@ class Layout extends Component {
     }
     reset = () => {
         this.setState({
-            currentUser:this.state.users[this.state.userSelected],
+            currentUser: this.state.userData[this.state.userSelected],
             submitDisabled: true
         });
-        
+
     }
 
     inputChange = (event) => {
-        this.setState({submitDisabled: false});
+        this.setState({ submitDisabled: false });
         const user = { ...this.state.currentUser }
         user[event.target.name] = event.target.value;
         this.setState({ currentUser: user });
@@ -66,7 +66,7 @@ class Layout extends Component {
                             selectUser: this.userSelect,
                         }}>
                         <LeftSideBar
-                            users={this.state.users}
+                            userData={this.state.userData}
                             onUserSelection={this.userSelect}> </LeftSideBar>
                     </UserContext.Provider>
                 </div>
@@ -76,7 +76,7 @@ class Layout extends Component {
                         handleSubmit={this.submit}
                         handleReset={this.reset}
                         handleInputChange={this.inputChange}
-                        buttonSubmitDisabled = {this.state.submitDisabled}                        
+                        buttonSubmitDisabled={this.state.submitDisabled}
                     ></RightSideBar>
                 </div>
             </div>
