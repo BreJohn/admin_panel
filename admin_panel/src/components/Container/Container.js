@@ -70,7 +70,7 @@ class Layout extends Component {
         return (
 
             <div className="row">
-                <div className="col-md col-3 leftSideBar">
+                <div className="col-md col-4 leftSideBar">
                     <UserContext.Provider value={
                         {
                             userSelected: this.state.userSelected,
@@ -81,7 +81,7 @@ class Layout extends Component {
                             onUserSelection={this.userSelect}> </LeftSideBar>
                     </UserContext.Provider>
                 </div>
-                <div className="col-md col-9 rightSideBar">
+                <div className="col-md col-8 rightSideBar">
                     <RightSideBar
                         currentUser={this.state.currentUser}
                         handleSubmit={this.submit}
