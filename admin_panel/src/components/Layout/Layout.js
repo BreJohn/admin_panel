@@ -10,12 +10,12 @@ class Layout extends Component {
 
     constructor(props) {
         super(props);
-        const users = USERS.reduce(
+        const users = USERS? USERS.reduce(
             (acc, curr) => {
                 acc[curr.id] = curr
                 return acc;
             }, {}
-        )
+        ) : [];
         this.state = {
             userData: users,
             userSelected: '',
@@ -30,6 +30,9 @@ class Layout extends Component {
 
     submit = (event) => {
         event.preventDefault();
+        if(!this.state.currentUser) {
+            console.error('No User Selected!');
+            return;        } 
         const edittedUser = { ...this.state.currentUser };
         Object.keys(edittedUser).filter(key => key !== 'id' && key !== 'photo').map(
             (key) => {
@@ -41,6 +44,10 @@ class Layout extends Component {
         this.setState({ users: newUsers, submitDisabled: true });
     }
     reset = () => {
+        if(!this.state.userSelected) {
+            console.error('No User Selected!');
+            return;
+        }
         this.setState({
             currentUser: this.state.userData[this.state.userSelected],
             submitDisabled: true
@@ -56,6 +63,10 @@ class Layout extends Component {
     }
 
     render() {
+        if (!USERS && USERS.length < 1) {
+            console.error('NO USERS FOUND!');
+            return (<></>)
+        }
         return (
 
             <div className="row">
