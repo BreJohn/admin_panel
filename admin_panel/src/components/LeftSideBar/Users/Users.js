@@ -6,15 +6,20 @@ const Users = (props) => {
     const userContext = useContext(UserContext);
     const selectedUser = userContext.userSelected;
     return (
-        Object.keys(props.userData).map(
-        (index) => {
-            let bgColor = 'bgColorDefault';
-            if (selectedUser === index) {
-                bgColor = 'bgColorSelected'
+        <>
+            {
+                Object.keys(props.userData).map(
+                    (index) => {
+                        let bgColor = 'bgColorDefault';
+                        if (selectedUser === index) {
+                            bgColor = 'bgColorSelected'
+                        }
+                        return <User key={index} user={props.userData[index]} bgColor={bgColor}></User>
+                    }
+                )
             }
-            return <User key={index} user={props.userData[index]} bgColor={bgColor}></User>
-        }
-    )
+        </>
+
     )
 }
 
