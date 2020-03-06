@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import "./Layout.css"
+import "./Container.css"
 import LeftSideBar from '../LeftSideBar/LeftSideBar'
 import RightSideBar from '../RightSideBar/RightSideBar'
 import { USERS } from "../../assets/user_data";
